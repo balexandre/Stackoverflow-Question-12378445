@@ -23,11 +23,16 @@ namespace Mvc3Application.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SignIn(string pwd)
+        public ActionResult SignIn(string pwd, string ReturnUrl)
         {
             if (pwd == "123")
             {
                 Session["myApp-Authentication"] = "123";
+                if (ReturnUrl != null)
+                    // there's a rediect url, let's redirect the user there
+                    return Redirect(ReturnUrl);
+
+                // redirect to Index action
                 return RedirectToAction("Index");
             }
             return View();
