@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "SignIn";
+}
+
+<h2>Protected SignIn</h2>
+
+@using (Html.BeginForm())
+{ 
+    <input type="text" name="pwd" id="pwd" /> <input type="submit" value="Sign in" />
+}
